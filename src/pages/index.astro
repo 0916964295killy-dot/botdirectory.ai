@@ -329,9 +329,9 @@ before merge.</pre>
       <div class="discovery-inner">
         <nav class="discovery-links" aria-label="Browse prompt collections">
           <span>探索分類：</span>
-          {CATEGORIES.map((category) => <a href={`/categories/${categorySlug(category)}/`}>{category}</a>)}
-          <a href="/integrations/">By integration</a>
-          <a href="/collections/chief-of-staff/">Chief of Staff prompts</a>
+          {CATEGORIES.map((category) => <a href={`/categories/${categorySlug(category)}/`}>{CATEGORY_LABEL[category]}</a>)}
+          <a href="/integrations/">依工具</a>
+          <a href="/collections/chief-of-staff/">幕僚長助理提示詞</a>
         </nav>
         <nav class="discovery-links discovery-links-tools" aria-label="Popular integrations">
           <span>熱門工具：</span>
