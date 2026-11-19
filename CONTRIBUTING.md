@@ -44,7 +44,7 @@ fix internal links, and open a PR I review before merge.
 - **updated_at** — optional ISO 8601 timestamp for a material prompt or listing
   update. This becomes the page's sitemap and structured-data modification date.
 - **category** — one of: `Productivity`, `Sales`, `Marketing`, `Ops`, `Success`,
-  `Personal`. Pick the closest fit — this list is deliberately short and curated.
+  `Personal`, `Development`, `Lifestyle`, `Design`, `Social`. The directory displays these categories with Traditional Chinese labels.
 - **contributor** — whose setup/prompt this is (optional; omit for anonymous
   sources). Links to `contributor_url` if set, else `github.com/<contributor>`.
 - **scouted_by** — if you're submitting someone *else's* setup (say, from a

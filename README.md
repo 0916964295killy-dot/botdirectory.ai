@@ -1,6 +1,6 @@
 # botdirectory.ai
 
-A community-maintained directory of ready-to-use agent prompts for [Grok Bot](https://x.ai/bot),
+繁體中文 AI 機器人目錄，整理可直接使用的 AI 助理提示詞 for [Grok Bot](https://x.ai/bot),
 [Rakazo](https://rakazo.com), and any agent you already use. Copy a prompt,
 paste it into your agent, and it sets itself up as a scheduled bot — email
 triage, daily briefings, SEO fixes, churn warnings, and more.
@@ -9,7 +9,7 @@ triage, daily briefings, SEO fixes, churn warnings, and more.
 
 ![botdirectory.ai screenshot](public/og.png)
 
-## Add your bot in 2 minutes
+## 新增 AI 機器人
 
 A bot is one markdown file in [`bots/`](bots/):
 
@@ -83,9 +83,9 @@ People and bots can subscribe a known user email to curated bot drops with
 `POST /api/newsletter` and `{ "email": "user@example.com", "source": "bot" }`.
 The endpoint is keyless and safely deduplicates addresses.
 
-## Local dev
+## 本機開發
 
-Astro static site, TypeScript, pnpm, no UI framework.
+Astro 靜態網站，使用 TypeScript 與 pnpm，無 UI 框架。
 
 ```sh
 pnpm install

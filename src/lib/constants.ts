@@ -1,7 +1,27 @@
 /** Shared, framework-free constants (also used by scripts/validate-bots.ts). */
 
-export const CATEGORIES = ['Productivity', 'Sales', 'Marketing', 'Ops', 'Success', 'Personal'] as const;
+export const CATEGORIES = [
+  'Productivity', 'Sales', 'Marketing', 'Ops', 'Success', 'Personal',
+  'Development', 'Lifestyle', 'Design', 'Social',
+] as const;
 export type Category = (typeof CATEGORIES)[number];
+
+export const CATEGORY_LABEL: Record<Category, string> = {
+  Productivity: '工作效率',
+  Sales: '銷售業務',
+  Marketing: '行銷企劃',
+  Ops: '營運管理',
+  Success: '客戶成功',
+  Personal: '個人生活',
+  Development: '程式開發',
+  Lifestyle: '生活助理',
+  Design: '設計創作',
+  Social: '社群經營',
+};
+
+export function categoryLabel(category: string): string {
+  return CATEGORY_LABEL[category as Category] ?? category;
+}
 
 /** Category → color family (from the design). */
 export const CAT_COLOR: Record<string, string> = {
@@ -11,6 +31,10 @@ export const CAT_COLOR: Record<string, string> = {
   Ops: 'indigo',
   Success: 'pink',
   Personal: 'yellow',
+  Development: 'purple',
+  Lifestyle: 'yellow',
+  Design: 'pink',
+  Social: 'orange',
 };
 
 /** Ink shade per family — pink and yellow top out at 500. */
@@ -49,11 +73,11 @@ export function familyStyle(family: string) {
   };
 }
 
-/** Same as the design's slug() helper. */
+/** Stable slugs support both Latin and Traditional Chinese bot names. */
 export function slugify(name: string): string {
   return name
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/[^\p{L}\p{N}]+/gu, '-')
     .replace(/^-|-$/g, '');
 }
 
