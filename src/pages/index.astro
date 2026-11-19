@@ -12,7 +12,7 @@ import ToolIcon from '../components/ToolIcon.astro';
 import Select from '../components/Select.astro';
 import NewsletterSignup from '../components/NewsletterSignup.astro';
 import { FEATURES, SITE, SPONSORING } from '../config';
-import { CATEGORIES, catStyle, familyStyle, fmt } from '../lib/constants';
+import { CATEGORIES, CATEGORY_LABEL, catStyle, familyStyle, fmt } from '../lib/constants';
 import { botListingText, getBots, SPONSORS, PROMOS, type Bot, type Promo } from '../lib/data';
 import { categorySlug, listIntegrations, MIN_INTEGRATION_HUB_BOTS, organizationStructuredData } from '../lib/seo';
 import { sponsorUrl } from '../lib/utm';
@@ -97,10 +97,10 @@ const structuredData = [
 
         <section class="hero">
           <p class="iz-eyebrow">
-            Works with <a href={SITE.grokBotUrl}>Grok Bot</a> and <a href={SITE.rakazoUrl}>Rakazo</a>
+            支援 <a href={SITE.grokBotUrl}>Grok Bot</a> 與 <a href={SITE.rakazoUrl}>Rakazo</a>
           </p>
-          <h1 class="hero-title">The Grok Bot directory</h1>
-          <p class="hero-sub">Bots that get stuff done. Set one up with a single prompt for work, business, or everyday life.</p>
+          <h1 class="hero-title">AI 機器人目錄</h1>
+          <p class="hero-sub">精選 AI 助理與實用提示詞，協助你處理工作、學習、創作與日常生活。</p>
         </section>
 
         <NewsletterSignup />
@@ -110,37 +110,37 @@ const structuredData = [
             <div style="min-width: 0;">
               <div class="filterbar">
                 <div class="filterbar-controls">
-                  <input type="text" id="bot-search" class="search-input" placeholder="Search" />
+                  <input type="text" id="bot-search" class="search-input" placeholder="搜尋 AI 機器人" />
                   <Select
                     id="bot-category"
-                    label="Filter by category"
-                    options={[{ value: 'All', label: 'Any category' }, ...CATEGORIES.map((c) => ({ value: c, label: c, swatch: catStyle(c).catFg }))]}
+                    label="依分類篩選"
+                    options={[{ value: 'All', label: '所有分類' }, ...CATEGORIES.map((c) => ({ value: c, label: CATEGORY_LABEL[c], swatch: catStyle(c).catFg }))]}
                   />
                   <Select
                     id="bot-integration"
-                    label="Filter by integration"
-                    options={[{ value: 'all', label: 'Any integration' }, ...allTools.map((t) => ({ value: t, label: t, tool: t }))]}
+                    label="依工具篩選"
+                    options={[{ value: 'all', label: '所有工具' }, ...allTools.map((t) => ({ value: t, label: t, tool: t }))]}
                   />
                   <Select
                     id="bot-sort"
-                    label="Sort bots"
+                    label="排序方式"
                     value="copies"
                     options={[
-                      ...(FEATURES.showCopies ? [{ value: 'copies', label: 'Most copied' }] : []),
-                      { value: 'newest', label: 'Newly added' },
-                      { value: 'name', label: 'A–Z' },
+                      ...(FEATURES.showCopies ? [{ value: 'copies', label: '最多複製' }] : []),
+                      { value: 'newest', label: '最新加入' },
+                      { value: 'name', label: '名稱排序' },
                     ]}
                   />
                   <div class="view-toggle">
-                    <button type="button" id="view-table-btn" class="view-btn active">Table</button>
-                    <button type="button" id="view-cards-btn" class="view-btn">Cards</button>
+                    <button type="button" id="view-table-btn" class="view-btn active">表格</button>
+                    <button type="button" id="view-cards-btn" class="view-btn">卡片</button>
                   </div>
                 </div>
               </div>
 
               <div id="directory-view" class="bot-table directory-view" data-view="table">
                 <div class="bot-table-head">
-                  <span>Bot</span><span>Category</span><span>Integrations</span>{FEATURES.showCopies && <span>Copies</span>}<span>Source</span><span class="bot-table-add-head">Add</span>
+                  <span>AI 機器人</span><span>分類</span><span>支援工具</span>{FEATURES.showCopies && <span>Copies</span>}<span>提供者</span><span class="bot-table-add-head">Add</span>
                 </div>
                 {
                   rows.map((row) =>
@@ -234,8 +234,8 @@ const structuredData = [
               </div>
 
               <div id="empty-state" class="empty-state" hidden>
-                <p class="empty-state-title">No bot for that yet.</p>
-                <p class="empty-state-sub">Write the prompt and open a PR — or tag @botdirectoryai on X and our agent does it for you.</p>
+                <p class="empty-state-title">目前沒有符合條件的機器人。</p>
+                <p class="empty-state-sub">歡迎提交新的 AI 機器人，持續豐富目錄內容。</p>
               </div>
             </div>
 
@@ -266,19 +266,19 @@ const structuredData = [
     <section id="contribute" class="contribute-section">
       <div class="contribute-inner">
         <div>
-          <p class="iz-eyebrow">Contribute</p>
-          <h2 class="contribute-title">A bot is one file in a repo</h2>
+          <p class="iz-eyebrow">參與貢獻</p>
+          <h2 class="contribute-title">新增機器人，只需一個檔案</h2>
           <p class="contribute-copy">
-            No plugin API, no review board. Add a markdown file with the prompt and the integrations it needs, open a
-            pull request, and it shows up here. Prefer a second-person prompt that leads with <em>You…</em>. If you own a
-            real <code>https://x.ai/bot/…</code> share link, add it as <code>grok_share_url</code> — we link it, we never
-            rehost packed configs.
+            只要新增一個 Markdown 檔案，寫入提示詞與所需工具，再提交
+            Pull Request，就能讓機器人出現在目錄中。
+            
+            
           </p>
           <div class="cta-row">
-            <PrimaryButton href={SITE.repoUrl}>Open a pull request</PrimaryButton>
-            <button type="button" class="btn-secondary" data-tag-open>Tag a tweet</button>
+            <PrimaryButton href={SITE.repoUrl}>提交機器人</PrimaryButton>
+            <button type="button" class="btn-secondary" data-tag-open>標記 X 貼文</button>
           </div>
-          <a href={SITE.contributingUrl} class="contribute-guide-link">Read the contribution guide →</a>
+          <a href={SITE.contributingUrl} class="contribute-guide-link">閱讀貢獻指南 →</a>
           <p class="contribute-alt">
             No PR needed: tag <a href={SITE.xUrl}>{SITE.xHandle}</a> under any tweet about a bot setup and our
             agent does the rest.
@@ -328,13 +328,13 @@ before merge.</pre>
     <section class="discovery-section">
       <div class="discovery-inner">
         <nav class="discovery-links" aria-label="Browse prompt collections">
-          <span>Explore:</span>
+          <span>探索分類：</span>
           {CATEGORIES.map((category) => <a href={`/categories/${categorySlug(category)}/`}>{category}</a>)}
           <a href="/integrations/">By integration</a>
           <a href="/collections/chief-of-staff/">Chief of Staff prompts</a>
         </nav>
         <nav class="discovery-links discovery-links-tools" aria-label="Popular integrations">
-          <span>Popular tools:</span>
+          <span>熱門工具：</span>
           {topIntegrationHubs.map((integration) => <a href={`/integrations/${integration.slug}/`}>{integration.name}</a>)}
         </nav>
       </div>
