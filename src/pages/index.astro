@@ -48,7 +48,7 @@ if (mode === 'inline') {
   }
 }
 
-const searchText = (b: Bot) => [b.name, b.category, ...b.integrations, b.contributor].filter(Boolean).join(' ').toLowerCase();
+const searchText = (b: Bot) => [b.name, b.category, CATEGORY_LABEL[b.category], ...b.integrations, b.contributor].filter(Boolean).join(' ').toLowerCase();
 
 const title = `Grok Bot Prompts & AI Bot Directory | ${SITE.wordmark}`;
 const description =
@@ -166,7 +166,7 @@ const structuredData = [
                         <span
                           class="cat-pill"
                           style={`color: ${catStyle(row.bot.category).catFg}; background: ${catStyle(row.bot.category).catBg}; border-color: ${catStyle(row.bot.category).catBorder};`}
-                        >{row.bot.category}</span>
+                         >{CATEGORY_LABEL[row.bot.category]}</span>
                         <span class="bot-row-tools">
                           {row.bot.integrations.map((t) => (
                             <span class="bot-row-tool"><ToolIcon name={t} size={14} />{t}</span>
