@@ -77,7 +77,7 @@ export function familyStyle(family: string) {
 export function slugify(name: string): string {
   return name
     .toLowerCase()
-    .replace(/[^\\p{L}\\p{N}]+/gu, '-')
+    .replace(/[^\p{L}\p{N}]+/gu, '-')
     .replace(/^-|-$/g, '');
 }
 
