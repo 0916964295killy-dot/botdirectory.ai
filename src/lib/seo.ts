@@ -33,34 +33,54 @@ interface CategoryPageCopy {
 
 export const CATEGORY_PAGE_COPY: Record<Category, CategoryPageCopy> = {
   Productivity: {
-    title: 'Productivity Grok Bot Prompts',
-    description: 'Copy productivity Grok Bot prompts for planning, research, meetings, inboxes, and daily work.',
-    intro: 'Turn recurring personal and team work into a bot you can run on demand or on a schedule. These prompts cover planning, research, meetings, inboxes, and everyday execution.',
+    title: '工作效率 AI 助理',
+    description: '探索工作規劃、研究、會議、收件匣與日常任務的 AI 助理。',
+    intro: '將重複的個人與團隊工作整理成可重複使用的 AI 工作流程。',
   },
   Sales: {
-    title: 'Sales Grok Bot Prompts',
-    description: 'Copy sales Grok Bot prompts for prospecting, account research, follow-up, CRM work, and pipeline reviews.',
-    intro: 'Build repeatable sales workflows for research, outreach, meeting preparation, follow-up, and pipeline management. Each prompt names the tools it needs before you start.',
+    title: '銷售業務 AI 助理',
+    description: '探索潛在客戶研究、聯繫追蹤、CRM 與銷售流程管理 AI 助理。',
+    intro: '建立可重複使用的客戶研究、開發、會議準備與銷售追蹤流程。',
   },
   Marketing: {
-    title: 'Marketing Grok Bot Prompts',
-    description: 'Copy marketing Grok Bot prompts for content, SEO, social media, campaigns, research, and reporting.',
-    intro: 'Use these prompts to turn research, content, SEO, campaign, and reporting workflows into reusable bots. Copy one as written or adapt it to your team and channels.',
+    title: '行銷企劃 AI 助理',
+    description: '探索內容企劃、SEO、社群、廣告活動與成效分析 AI 助理。',
+    intro: '將內容、SEO、活動企劃與成效報告轉化為可執行的 AI 工作流程。',
   },
   Ops: {
-    title: 'Operations Grok Bot Prompts',
-    description: 'Copy operations Grok Bot prompts for triage, reporting, handoffs, support, and recurring business workflows.',
-    intro: 'Keep recurring operational work moving with bots for triage, reporting, handoffs, coordination, and internal processes. Every listing includes the full setup prompt.',
+    title: '營運管理 AI 助理',
+    description: '探索任務分流、營運報告、交接、客服與內部流程 AI 助理。',
+    intro: '使用 AI 協助處理日常營運、報告、協作與內部流程。',
   },
   Success: {
-    title: 'Customer Success Grok Bot Prompts',
-    description: 'Copy customer success Grok Bot prompts for onboarding, account health, support, renewals, and follow-up.',
-    intro: 'Create consistent customer workflows for onboarding, support, account health, renewals, and follow-up. The prompts are ready to copy and easy to adjust to your playbook.',
+    title: '客戶成功 AI 助理',
+    description: '探索客戶導入、帳戶健康度、客服、續約與追蹤 AI 助理。',
+    intro: '建立一致的客戶導入、支援、帳戶管理與續約流程。',
   },
   Personal: {
-    title: 'Personal Grok Bot Prompts',
-    description: 'Copy personal Grok Bot prompts for planning, travel, learning, shopping, health routines, and daily life.',
-    intro: 'Set up practical bots for planning, travel, learning, shopping, routines, and the rest of daily life. Start with a complete prompt, then personalize it as the bot walks you through setup.',
+    title: '個人生活 AI 助理',
+    description: '探索行程、旅遊、學習、購物與日常生活 AI 助理。',
+    intro: '為生活規劃、旅遊、學習與日常任務建立實用的 AI 助理。',
+  },
+  Development: {
+    title: '程式開發 AI 助理',
+    description: '探索程式撰寫、除錯、程式碼審查、測試與技術文件 AI 助理。',
+    intro: '協助你規劃程式架構、分析錯誤、撰寫測試並改善程式品質。',
+  },
+  Lifestyle: {
+    title: '生活助理 AI',
+    description: '探索生活規劃、購物整理、個人行政與日常決策 AI 助理。',
+    intro: '把生活中的瑣事、清單與規劃整理成簡單可執行的步驟。',
+  },
+  Design: {
+    title: '設計創作 AI 助理',
+    description: '探索視覺概念、品牌設計、創意發想與圖片提示詞 AI 助理。',
+    intro: '協助你整理設計需求、發想視覺方向並產出可供創作使用的規格。',
+  },
+  Social: {
+    title: '社群經營 AI 助理',
+    description: '探索社群內容規劃、貼文撰寫、內容行事曆與互動管理 AI 助理。',
+    intro: '規劃社群主題、撰寫貼文草稿並整理發布與互動流程。',
   },
 };
 
