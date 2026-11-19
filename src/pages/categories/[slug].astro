@@ -4,7 +4,7 @@ import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import HubBotGrid from '../../components/HubBotGrid.astro';
 import { SITE } from '../../config';
-import { CATEGORIES, type Category } from '../../lib/constants';
+import { CATEGORIES, CATEGORY_LABEL, type Category } from '../../lib/constants';
 import { getBots, type Bot } from '../../lib/data';
 import { CATEGORY_PAGE_COPY, categorySlug, collectionStructuredData, listIntegrations } from '../../lib/seo';
 
@@ -49,8 +49,8 @@ const structuredData = collectionStructuredData({
 <Base title={title} description={copy.description} structuredData={structuredData}>
   <Header />
   <main class="hub-page">
-    <div class="breadcrumb"><a href="/">All bots</a><span>/</span><a href="/categories/">Categories</a><span>/</span><span>{category}</span></div>
-    <p class="iz-eyebrow">{bots.length} ready-to-copy prompts</p>
+    <div class="breadcrumb"><a href="/">所有機器人</a><span>/</span><a href="/categories/">分類</a><span>/</span><span>{CATEGORY_LABEL[category]}</span></div>
+    <p class="iz-eyebrow">{bots.length} 個可使用的 AI 提示詞</p>
     <h1 class="hub-title">{copy.title}</h1>
     <p class="hub-lead">{copy.intro}</p>
     <HubBotGrid bots={bots} integrationHubs={integrationHubs} />
