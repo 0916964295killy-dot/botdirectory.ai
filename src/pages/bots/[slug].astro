@@ -182,7 +182,7 @@ const structuredData = [
         <section class="connect-section">
           {connectIntegrations.length > 0 && (
             <>
-              <h2 class="section-title">Connect first</h2>
+              <h2 class="section-title">使用前請先連接</h2>
               <div class="connect-chips">
                 {
                   connectIntegrations.map((t) => (
@@ -196,7 +196,7 @@ const structuredData = [
               </div>
               <p class="section-note">
                 {hasPrompt
-                  ? 'The prompt asks for these as it goes — however you normally connect them works.'
+                  ? '提示詞 asks for these as it goes — however you normally connect them works.'
                   : 'Connect these after you add the official share link — however you normally connect them works.'}
               </p>
             </>
