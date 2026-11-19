@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import { SITE } from '../../config';
-import { CATEGORIES, catStyle } from '../../lib/constants';
+import { CATEGORIES, CATEGORY_LABEL, catStyle } from '../../lib/constants';
 import { getBots } from '../../lib/data';
 import { CATEGORY_PAGE_COPY, categorySlug } from '../../lib/seo';
 
@@ -14,7 +14,7 @@ const categories = CATEGORIES.map((category) => ({
   copy: CATEGORY_PAGE_COPY[category],
   style: catStyle(category),
 }));
-const title = `Grok Bot Prompt Categories | ${SITE.wordmark}`;
+const title = `AI 機器人分類 | ${SITE.wordmark}`;
 const description = 'Browse Grok Bot prompts by category, including productivity, marketing, sales, operations, customer success, and personal workflows.';
 const structuredData = {
   '@context': 'https://schema.org',
@@ -38,18 +38,18 @@ const structuredData = {
 <Base title={title} description={description} structuredData={structuredData}>
   <Header />
   <main class="hub-page">
-    <div class="breadcrumb"><a href="/">All bots</a><span>/</span><span>Categories</span></div>
-    <p class="iz-eyebrow">Browse by category</p>
+    <div class="breadcrumb"><a href="/">所有機器人</a><span>/</span><span>分類</span></div>
+    <p class="iz-eyebrow">依分類探索</p>
     <h1 class="hub-title">Grok Bot prompt categories</h1>
-    <p class="hub-lead">Start with the kind of work you want to hand off. Every category contains complete prompts you can copy, adapt, and run with your preferred agent.</p>
+    <p class="hub-lead">依照你的需求探索 AI 助理。每個分類都整理了可複製、調整並使用的提示詞。</p>
 
     <div class="hub-index-grid">
       {categories.map(({ category, count, copy, style }) => (
         <a href={`/categories/${categorySlug(category)}/`} class="hub-index-card">
-          <span class="cat-pill" style={`color: ${style.catFg}; background: ${style.catBg}; border-color: ${style.catBorder};`}>{category}</span>
-          <strong>{copy.title}</strong>
+          <span class="cat-pill" style={`color: ${style.catFg}; background: ${style.catBg}; border-color: ${style.catBorder};`}>{CATEGORY_LABEL[category]}</span>
+          <strong>{CATEGORY_LABEL[category]}</strong>
           <span>{copy.intro}</span>
-          <small>{count} prompts →</small>
+          <small>{count} 個提示詞 →</small>
         </a>
       ))}
     </div>
